@@ -20,6 +20,20 @@ TParam::TParam(double x_start, double x_end, double dx, double val)
 	
 }
 
+TParam::TParam(string name, double x_start, double x_end, double dx)
+{
+	this->name = name;
+	set_range(x_start, x_end, dx);
+	
+}
+
+TParam::TParam(string name, double x_start, double x_end, double dx, double val)
+{
+	this->name = name;
+	set_range(x_start, x_end, dx);
+	set_val(val);
+}
+
 void TParam::set_range(double x_start, double x_end, double dx)
 {
 	this->x_start = x_start;
