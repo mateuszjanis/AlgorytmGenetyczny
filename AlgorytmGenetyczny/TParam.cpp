@@ -50,6 +50,6 @@ void TParam::info()
 	cout << "=========================\n";
 	cout << "== name: " << name << "\n";
 	cout << "== range: [" << x_start << "; " << x_end << "; " << dx << "]\n";
-	cout << "== range: [" << x_start << "; " << x_end << "; " << dx << "]\n";
-	cout << "=========================\n";
+	cout << "== rvalue: " << get_val() << " \t (id: #" << val_id << ")\n";
+	cout << "=========================\n\n";
 }
