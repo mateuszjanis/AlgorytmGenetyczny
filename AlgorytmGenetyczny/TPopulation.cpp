@@ -3,8 +3,11 @@
 
 using namespace std;
 
+unsigned int TPopulation::_id = 0;
+
 TPopulation::TPopulation(unsigned int count)
 {
+	_id++;
 	candidates_count = count;
 	
 	for (int i = 0; i < count; i++){candidates.push_back({});}
@@ -13,7 +16,7 @@ TPopulation::TPopulation(unsigned int count)
 void TPopulation::info()
 {
 	unsigned int id = 0;
-	cout << "===== POPULATION #" << id << " ====" << endl;
+	cout << "===== POPULATION #" << _id << " ====" << endl;
 	for (int i = 0; i < candidates_count; i++)
 	{
 		cout << "== candidate#" << i << ": " << candidates[i].get_mark() << endl;

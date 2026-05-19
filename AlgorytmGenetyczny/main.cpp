@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// unsigned int TPopulation::_id = ;
+
 
 int main()
 {
