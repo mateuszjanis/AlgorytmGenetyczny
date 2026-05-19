@@ -1,40 +1,61 @@
 #include <iostream>
 
-#include "TParam.h"
+//#include "TParam.h"
+//#include "TCandidate.h"
+#include "TPopulation.h"
 
 using namespace std;
 
 int main()
 {
-	TParam param1{ 1, 4, 1, 2 };
-	TParam param2{ 10, 20, 3 };
-	TParam param3{ 0, 10, 0.5, 3.3 };
 
-	cout << "param1";
-	param1.info();
+	srand(time(0));
 
-	cout << "param2";
-	param2.info();
+	TPopulation pop(10);
 
-	cout << "param3";
-	param3.info();
+	cout << "Zaraz po utworzeniu obiektu klasy TPopulation";
+	pop.info();
+	cout << "\n\n";
 
-	//////////////////////////////////////////
+	cout << "Po wykonanych obliczeniach";
+	pop.calculate();
+	pop.info();
+	cout << "\n\n";
 
-	param2.set_val(100);
-	param3.set_val(7.5);
+	//srand(time(0));
+	//TCandidate os1{};
+	//os1.rate();
+	//os1.info();
+	//
+	//TParam param1{ 1, 4, 1, 2 };
+	//TParam param2{ 10, 20, 3 };
+	//TParam param3{ 0, 10, 0.5, 3.3 };
+	//
+	//cout << "param1";
+	//param1.info();
+	//
+	//cout << "param2";
+	//param2.info();
+	//
+	//cout << "param3";
+	//param3.info();
 
-	cout << "=============\n";
-	cout << "AFTER\n";
-	cout << "=============\n";
+	//////////////////////////////////////////////
 
-	cout << "param2";
-	param2.info();
+	//param2.set_val(100);
+	//param3.set_val(7.5);
+	//
+	//cout << "=============\n";
+	//cout << "AFTER\n";
+	//cout << "=============\n";
+	//
+	//cout << "param2";
+	//param2.info();
+	//
+	//cout << "param3";
+	//param3.info();
 
-	cout << "param3";
-	param3.info();
-
-	////////////////////////////////////////////
+	////////////////////////////////////////////////
 
 	return 0;
 }
