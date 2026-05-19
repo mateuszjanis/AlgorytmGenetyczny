@@ -26,7 +26,7 @@ void TCandidate::info()
 
 	for (int i = 0; i < GENS_COUNT; i++)
 	{
-		cout << "== \"" << genotype[i].get_name() << "\"\ value: " << genotype[i].get_val() << endl;
+		cout << "== \"" << genotype[i].get_name() << "\" value: " << genotype[i].get_val() << endl;
 	}
 
 	cout << "== " << endl;

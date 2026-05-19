@@ -5,14 +5,9 @@ using namespace std;
 
 TPopulation::TPopulation(unsigned int count)
 {
-	this->candidates_count = count;
-	best_val = 1000;
+	candidates_count = count;
 	
-	for (int i = 0; i < candidates_count; i++)
-	{
-		TCandidate x;
-		candidates[i] = x;
-	}
+	for (int i = 0; i < count; i++){candidates.push_back({});}
 }
 
 void TPopulation::info()
@@ -28,13 +23,24 @@ void TPopulation::info()
 
 void TPopulation::calculate()
 {
+	double best_val = 0.0;
+	
 	for (int i = 0; i < candidates_count; i++)
 	{
 		candidates[i].rate();
+		double val = candidates[i].get_mark();
+
+		if (i == 0) best_val = val;
+		else best_val = max(best_val,val);
 	}
+
+	this->best_val = best_val;
 }
 
-//TCandidate TPopulation::get_best_candidate()
-//{
-//
-//}
+TCandidate TPopulation::get_best_candidate()
+{
+	int i = 0;
+	while(candidates[i].get_mark() != best_val) i++;
+
+	return candidates[i];
+}
