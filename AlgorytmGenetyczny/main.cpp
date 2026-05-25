@@ -1,10 +1,9 @@
 #include <iostream>
-
-//#include "TParam.h"
-//#include "TCandidate.h"
 #include "TPopulation.h"
 
 using namespace std;
+
+
 
 int main()
 {
@@ -13,14 +12,17 @@ int main()
 
 	TPopulation pop(10);
 
-	cout << "Zaraz po utworzeniu obiektu klasy TPopulation";
+	cout << "Zaraz po utworzeniu obiektu klasy TPopulation\n";
 	pop.info();
 	cout << "\n\n";
 
-	cout << "Po wykonanych obliczeniach";
+	cout << "Po wykonanych obliczeniach\n";
 	pop.calculate();
 	pop.info();
-	cout << "\n\n";
+	cout << "\n";
+
+	cout << "Najlepszy osobnik\n";
+	pop.get_best_candidate().info();
 
 	//srand(time(0));
 	//TCandidate os1{};
