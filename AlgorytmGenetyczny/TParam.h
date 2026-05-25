@@ -4,7 +4,7 @@
 class TParam
 {
 private:
-	std::string name;
+	const std::string name;
 	double x_start, x_end, dx;
 	int val_id;
 
@@ -14,7 +14,7 @@ public:
 	TParam(std::string name, double x_start, double x_end, double dx);
 	TParam(std::string name, double x_start, double x_end, double dx, double val);
 
-	void set_name(std::string name) { this->name = name; }
+	//void set_name(std::string name) { this->name = name; }
 	std::string get_name() { return name; }
 
 	void set_range(double x_start, double x_end, double dx);

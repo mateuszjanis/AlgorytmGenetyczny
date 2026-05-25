@@ -5,33 +5,33 @@
 
 using namespace std;
 
-TParam::TParam(double x_start, double x_end, double dx)
+TParam::TParam(double x_start, double x_end, double dx) : name {""}
 {
 	set_range(x_start, x_end, dx);
-	name = "";
+	//name = "";
 	val_id = 0;
 	set_rand_val();
 }
 
-TParam::TParam(double x_start, double x_end, double dx, double val)
+TParam::TParam(double x_start, double x_end, double dx, double val) : TParam::TParam(x_start,x_end,dx)
 {
-	set_range(x_start, x_end, dx);
+	//set_range(x_start, x_end, dx);
 	set_val(val);
-	name = "";
+	//name = "";
 	
 }
 
-TParam::TParam(string name, double x_start, double x_end, double dx)
+TParam::TParam(string name_val, double x_start, double x_end, double dx) : name{ name_val }
 {
-	this->name = name;
+	//this->name = name;
 	set_range(x_start, x_end, dx);
 	set_rand_val();	
 }
 
-TParam::TParam(string name, double x_start, double x_end, double dx, double val)
+TParam::TParam(string name, double x_start, double x_end, double dx, double val) : TParam::TParam(name, x_start, x_end, dx)
 {
-	this->name = name;
-	set_range(x_start, x_end, dx);
+	//this->name = name;
+	//set_range(x_start, x_end, dx);
 	set_val(val);
 }
 
