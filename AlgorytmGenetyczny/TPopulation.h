@@ -15,6 +15,9 @@ public:
 	void info();
 	void calculate();
 	TCandidate get_best_candidate();
+	double get_best_val() { return best_val; };
+	static unsigned int get_id() { return _id; };
+	unsigned int get_candidates_count() { return candidates_count; };
 
 private:
 

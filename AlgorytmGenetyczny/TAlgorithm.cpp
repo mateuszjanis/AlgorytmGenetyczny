@@ -32,20 +32,58 @@ void TAlgorithm::run()
     {
         wsk_population_pres->calculate();
 
+        cout << "== Population #" << wsk_population_pres->get_id();
+        cout << " || best val: " << wsk_population_pres->get_best_val() << endl;
+
+        stop = is_stop();
+
+        if (!stop)
+        {
+            unsigned int candidates_count = wsk_population_pres->get_candidates_count();
+
+            delete wsk_population_prev;
+            wsk_population_prev = wsk_population_pres;
+
+            wsk_population_pres = new TPopulation{ candidates_count };
+        }
+        
+        if (wsk_population_pres->get_id() == 25) return;
+    
     }
 }
 
-bool is_stop()
+bool TAlgorithm::is_stop()
 {
+    bool stop = false;
 
+    if (!wsk_population_prev)
+    {
+        stop = is_max_population();
+    }
+    else
+    {
+        bool stop_case1 = is_max_population();
+        bool stop_case2 = is_min_improvement();
+        stop = stop_case1 || stop_case2;
+    }
+
+    return stop;
 }
 
-bool is_max_population()
+bool TAlgorithm::is_max_population()
 {
-
+    unsigned int _id_pres = wsk_population_pres->get_id();
+    return (_id_pres == stop_max_population_count);
 }
 
-bool is_min_improvement()
+bool TAlgorithm::is_min_improvement()
 {
-    
+    TPopulation population_pres = (*wsk_population_pres);
+    TPopulation population_prev = (*wsk_population_prev);
+
+    double best_val_pres = population_pres.get_best_val();
+    double best_val_prev = population_prev.get_best_val();
+
+    int improvement = fabs(best_val_prev - best_val_pres) / best_val_prev * 100;
+    return (improvement <= stop_min_improvement_proc);
 }

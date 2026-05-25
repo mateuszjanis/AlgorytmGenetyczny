@@ -8,7 +8,7 @@ class TCandidate
 	//TParam x[2] = {{"x1", 0, 10, 1}, {"x2", 0, 10, 1}};
 	TParam genotype[GENS_COUNT] =
 	{
-		TParam{ "x1", 0, 10, 1 },
+		TParam{ "x1", 0, 100, 1 },
 		TParam{ "x2", 0, 10, 1 }
 	};
 

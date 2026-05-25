@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{cb03884f-4f4f-443d-94f3-d0641edf5009}</ProjectGuid>
+    <ProjectGuid>{dff3352e-0e40-41ac-a431-cd0cd0531eec}</ProjectGuid>
     <RootNamespace>AlgorytmGenetyczny</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -139,17 +139,17 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\TAlgorithm.h" />
-    <ClInclude Include="..\TCandidate.h" />
-    <ClInclude Include="..\TParam.h" />
-    <ClInclude Include="..\TPopulation.h" />
+    <ClInclude Include="TAlgorithm.h" />
+    <ClInclude Include="TCandidate.h" />
+    <ClInclude Include="TParam.h" />
+    <ClInclude Include="TPopulation.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\main.cpp" />
-    <ClCompile Include="..\TAlgorithm.cpp" />
-    <ClCompile Include="..\TCandidate.cpp" />
-    <ClCompile Include="..\TParam.cpp" />
-    <ClCompile Include="..\TPopulation.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="TAlgorithm.cpp" />
+    <ClCompile Include="TCandidate.cpp" />
+    <ClCompile Include="TParam.cpp" />
+    <ClCompile Include="TPopulation.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

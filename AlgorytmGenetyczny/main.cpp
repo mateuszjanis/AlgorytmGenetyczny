@@ -1,28 +1,34 @@
 #include <iostream>
-#include "TPopulation.h"
+#include "TAlgorithm.h"
 
 using namespace std;
-
-
 
 int main()
 {
 
 	srand(time(0));
 
-	TPopulation pop(10);
+	unsigned int candidates_count = 5;
+	unsigned int max_population_count = 20;
+	unsigned int min_improvement_proc = 2;
 
-	cout << "Zaraz po utworzeniu obiektu klasy TPopulation\n";
-	pop.info();
-	cout << "\n\n";
+	TAlgorithm task{ candidates_count, max_population_count, min_improvement_proc };
 
-	cout << "Po wykonanych obliczeniach\n";
-	pop.calculate();
-	pop.info();
-	cout << "\n";
+	task.run();
 
-	cout << "Najlepszy osobnik\n";
-	pop.get_best_candidate().info();
+	//TPopulation pop(10);
+
+	//cout << "Zaraz po utworzeniu obiektu klasy TPopulation\n";
+	//pop.info();
+	//cout << "\n\n";
+
+	//cout << "Po wykonanych obliczeniach\n";
+	//pop.calculate();
+	//pop.info();
+	//cout << "\n";
+
+	//cout << "Najlepszy osobnik\n";
+	//pop.get_best_candidate().info();
 
 	//srand(time(0));
 	//TCandidate os1{};

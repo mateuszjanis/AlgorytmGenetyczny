@@ -46,4 +46,5 @@ TCandidate TPopulation::get_best_candidate()
 	while(candidates[i].get_mark() != best_val) i++;
 
 	return candidates[i];
+
 }
