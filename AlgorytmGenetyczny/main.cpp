@@ -1,5 +1,8 @@
 #include <iostream>
-#include "TAlgorithm.h"
+//#include "TAlgorithm.h"
+#include "TParam.h"
+#include "TCandidate.h"
+
 
 using namespace std;
 
@@ -8,13 +11,29 @@ int main()
 
 	srand(time(0));
 
-	unsigned int candidates_count = 5;
-	unsigned int max_population_count = 20;
-	unsigned int min_improvement_proc = 2;
+	TParam gen{ "gen1", 0, 10, 0.1 };
+	gen.info();
 
-	TAlgorithm task{ candidates_count, max_population_count, min_improvement_proc };
+	TParam gen_copy(gen);
+	gen_copy.info();
 
-	task.run();
+	cout << "\n\n\n";
+
+	TCandidate cand;
+	cand.info();
+
+	TCandidate cand_copy(cand);
+	cand_copy.info();
+
+	cout << "\n\n\n";
+
+	//unsigned int candidates_count = 5;
+	//unsigned int max_population_count = 20;
+	//unsigned int min_improvement_proc = 2;
+
+	//TAlgorithm task{ candidates_count, max_population_count, min_improvement_proc };
+
+	//task.run();
 
 	//TPopulation pop(10);
 

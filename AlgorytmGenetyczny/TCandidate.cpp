@@ -10,6 +10,26 @@ TCandidate::TCandidate()
 	rand_gens_val();
 }
 
+TCandidate::TCandidate(const TCandidate& original)
+{
+	for (int i = 0; i < GENS_COUNT; i++)
+	{
+		double x_start = original.genotype[i].get_x_start();
+		double x_end = original.genotype[i].get_x_end();
+		double dx = original.genotype[i].get_dx();
+		double val = original.genotype[i].get_val();
+
+		//std::string name = original.genotype[i].get_name();
+
+		this->genotype[i].set_range(x_start, x_end, dx);
+		//this->genotype[i].set_name(name);
+		this->genotype[i].set_val(val);
+
+	}
+
+	mark = original.get_mark();
+}
+
 void TCandidate::rate()
 {
 	double x1 = genotype[0].get_val();
@@ -38,9 +58,13 @@ void TCandidate::info()
 
 void TCandidate::rand_gens_val()
 {
-
 	for (int i = 0; i < GENS_COUNT; i++)
 	{
 		genotype[i].set_rand_val();
 	}
+}
+
+TParam TCandidate::get_genotype(int gen_id)
+{
+	return genotype[gen_id];
 }

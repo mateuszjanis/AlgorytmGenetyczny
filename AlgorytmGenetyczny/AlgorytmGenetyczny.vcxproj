@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClInclude Include="TAlgorithm.h" />
     <ClInclude Include="TCandidate.h" />
+    <ClInclude Include="TCandidate_1.h" />
     <ClInclude Include="TParam.h" />
     <ClInclude Include="TPopulation.h" />
   </ItemGroup>
@@ -148,6 +149,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TAlgorithm.cpp" />
     <ClCompile Include="TCandidate.cpp" />
+    <ClCompile Include="TCandidate_1.cpp" />
     <ClCompile Include="TParam.cpp" />
     <ClCompile Include="TPopulation.cpp" />
   </ItemGroup>
