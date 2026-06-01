@@ -21,9 +21,9 @@ TCandidate::TCandidate(const TCandidate& original)
 
 		//std::string name = original.genotype[i].get_name();
 
-		this->genotype[i].set_range(x_start, x_end, dx);
+		genotype[i].set_range(x_start, x_end, dx);
 		//this->genotype[i].set_name(name);
-		this->genotype[i].set_val(val);
+		genotype[i].set_val(val);
 
 	}
 

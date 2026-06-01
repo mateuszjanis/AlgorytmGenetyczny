@@ -1,8 +1,10 @@
 #include <iostream>
+#include <vector>
 //#include "TAlgorithm.h"
-#include "TParam.h"
+//#include "TParam.h"
 #include "TCandidate.h"
-
+#include "TCandidate_2.h"
+#include "TCandidate_1.h"
 
 using namespace std;
 
@@ -11,21 +13,76 @@ int main()
 
 	srand(time(0));
 
-	TParam gen{ "gen1", 0, 10, 0.1 };
-	gen.info();
+	///////////////////////////////////////////////////////////////////////
 
-	TParam gen_copy(gen);
-	gen_copy.info();
+	vector<TCandidate*> candidates;
 
-	cout << "\n\n\n";
+	candidates.push_back(new TCandidate{});
+	candidates.push_back(new TCandidate_1{});
+	candidates.push_back(new TCandidate_2{});
 
-	TCandidate cand;
-	cand.info();
+	for (int i = 0; i < candidates.size(); i++)
+	{
+		candidates[i]->rate();
+		candidates[i]->info();
+	}
 
-	TCandidate cand_copy(cand);
-	cand_copy.info();
+	for (int i = 0; i < candidates.size(); i++)
+	{
+		delete candidates[i];
+	}
 
-	cout << "\n\n\n";
+	////////////////////////////////////////////////////////////////////
+
+	//TCandidate* os = new TCandidate_1{};
+	//os->rate();
+	//os->info();
+	//delete os;
+
+	//os = new TCandidate_2{};
+	//os->rate();
+	//os->info();
+	//delete os;
+
+	/////////////////////////////////////////////////////////////////
+
+	//TCandidate_2 os_org{};
+	//os_org.rate();
+	//os_org.info();
+
+	//TCandidate_2 os_copy{ os_org };
+	//os_copy.rate();
+	//os_copy.info();
+
+	///////////////////////////////////////////////////////////////////////
+
+	//TCandidate os_org{};
+	//os_org.rate();
+	//os_org.info();
+
+	//TCandidate_1 os_1{};
+	//os_1.rate();
+	//os_1.info();
+
+	//////////////////////////////////////////////////////////////////////
+
+	//TParam gen{ "gen1", 0, 10, 0.1 };
+	//gen.info();
+
+	//TParam gen_copy(gen);
+	//gen_copy.info();
+
+	///////////////////////////////////////////////////////////
+
+	//cout << "\n\n\n";
+
+	//TCandidate cand;
+	//cand.info();
+
+	//TCandidate cand_copy(cand);
+	//cand_copy.info();
+
+	//cout << "\n\n\n";
 
 	//unsigned int candidates_count = 5;
 	//unsigned int max_population_count = 20;
@@ -34,6 +91,8 @@ int main()
 	//TAlgorithm task{ candidates_count, max_population_count, min_improvement_proc };
 
 	//task.run();
+
+	///////////////////////////////////////////////////////////
 
 	//TPopulation pop(10);
 
@@ -48,6 +107,8 @@ int main()
 
 	//cout << "Najlepszy osobnik\n";
 	//pop.get_best_candidate().info();
+
+	///////////////////////////////////////////////////////////
 
 	//srand(time(0));
 	//TCandidate os1{};
