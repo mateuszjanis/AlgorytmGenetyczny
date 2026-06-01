@@ -1,10 +1,12 @@
 #include <iostream>
 #include <vector>
-//#include "TAlgorithm.h"
-//#include "TParam.h"
-#include "TCandidate.h"
-#include "TCandidate_2.h"
+#include <cstdlib>
+#include <time.h>
+
 #include "TCandidate_1.h"
+#include "TCandidate_2.h"
+#include "TCandidate_3.h"
+#include "TPopulation.h"
 
 using namespace std;
 
@@ -13,24 +15,63 @@ int main()
 
 	srand(time(0));
 
+	TCandidate* pattern;
+	int count = 0;
+	int _type = -1;
+
+	cout << "Ktory osobnik [1-3]: ";
+	cin >> _type;
+	cout << "Ilu osobnikow utworzyc ? ";
+	cin >> count;
+
+	switch (_type)
+	{
+	case 1:
+		pattern = new TCandidate_1{};
+		break;
+	case 2:
+		pattern = new TCandidate_2{};
+		break;
+	case 3:
+		pattern = new TCandidate_3{};
+		break;
+	default:
+		pattern = new TCandidate_1{};
+		break;
+	}
+
+	/*
+
+	///////////////////////////////////////////////////////////
+
+	//TCandidate_1 os_1;
+	//os_1.rate();
+	//os_1.info();
+
+	//TCandidate_2 os_2;
+	//os_2.rate();
+	//os_2.info();
+
+	//std::cout << "\n\n\n";
+
 	///////////////////////////////////////////////////////////////////////
 
-	vector<TCandidate*> candidates;
+	//vector<TCandidate*> candidates;
 
-	candidates.push_back(new TCandidate{});
-	candidates.push_back(new TCandidate_1{});
-	candidates.push_back(new TCandidate_2{});
+	//candidates.push_back(new TCandidate{});
+	//candidates.push_back(new TCandidate_1{});
+	//candidates.push_back(new TCandidate_2{});
 
-	for (int i = 0; i < candidates.size(); i++)
-	{
-		candidates[i]->rate();
-		candidates[i]->info();
-	}
+	//for (int i = 0; i < candidates.size(); i++)
+	//{
+	//	candidates[i]->rate();
+	//	candidates[i]->info();
+	//}
 
-	for (int i = 0; i < candidates.size(); i++)
-	{
-		delete candidates[i];
-	}
+	//for (int i = 0; i < candidates.size(); i++)
+	//{
+	//	delete candidates[i];
+	//}
 
 	////////////////////////////////////////////////////////////////////
 
@@ -144,6 +185,7 @@ int main()
 	//param3.info();
 
 	////////////////////////////////////////////////
+	*/
 
 	return 0;
 }

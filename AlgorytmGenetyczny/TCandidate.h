@@ -1,16 +1,13 @@
 #pragma once
+#include <vector>
 #include "TParam.h"
-
-#define GENS_COUNT 2
 
 class TCandidate
 {
 protected:
-	TParam genotype[GENS_COUNT] =
-	{
-		TParam{ "x1", 0, 100, 1 },
-		TParam{ "x2", 0, 10, 1 }
-	};
+
+	int gens_count = 0;
+	std::vector<TParam> genotype;
 
 	double mark;
 
@@ -18,13 +15,17 @@ public:
 	TCandidate();
 	TCandidate(const TCandidate& original);
 
+	virtual TCandidate* create() = 0;
+	virtual TCandidate* create_copy() const = 0;
+
 	double get_mark() const { return mark; };
 
-	virtual void rate();
+	virtual void rate() = 0;
 	void info();
 
 protected:
 	void rand_gens_val();
-	TParam get_genotype(int gen_id);
+	virtual void init_vector() = 0;
+	double get_gen_val(int gen_id) const { return genotype[gen_id].get_val(); }
 };
 

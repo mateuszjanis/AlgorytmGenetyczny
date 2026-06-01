@@ -1,6 +1,6 @@
 #pragma once
 #include "TPopulation.h"
-
+/*
 class TAlgorithm
 {
     unsigned int stop_max_population_count;
@@ -21,3 +21,4 @@ private:
     bool is_max_population();
     bool is_min_improvement();
 };
+*/

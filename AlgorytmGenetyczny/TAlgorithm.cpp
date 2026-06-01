@@ -2,7 +2,7 @@
 #include <math.h>
 
 #include "TAlgorithm.h"
-
+/*
 using namespace std;
 
 
@@ -87,3 +87,4 @@ bool TAlgorithm::is_min_improvement()
     int improvement = fabs(best_val_prev - best_val_pres) / best_val_prev * 100;
     return (improvement <= stop_min_improvement_proc);
 }
+*/

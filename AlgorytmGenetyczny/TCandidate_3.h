@@ -1,24 +1,22 @@
 #pragma once
-#include "TCandidate.h"
-
-class TCandidate_2 : public TCandidate
+class TCandidate_3 : public TCandidate
 {
 public:
-	TCandidate_2() : TCandidate() 
+	TCandidate_3() : TCandidate()
 	{
 		init_vector();
 	}
 
-	TCandidate_2(const TCandidate_2& original) : TCandidate(original) {}
+	TCandidate_3(const TCandidate_3& original) : TCandidate(original) {}
 
 	TCandidate* create()
 	{
-		return new TCandidate_2();
+		return new TCandidate_3();
 	}
 
 	TCandidate* create_copy() const
 	{
-		return new TCandidate_2{ *this };
+		return new TCandidate_3{ *this };
 	}
 
 	void rate()
@@ -33,11 +31,13 @@ protected:
 	void init_vector();
 };
 
-void TCandidate_2::init_vector()
+void TCandidate_3::init_vector()
 {
 	genotype.push_back({ "x1", 0, 10, 1 });
 	genotype.push_back({ "x2", 11, 20, 2 });
 
 	gens_count = genotype.size();
 }
+
+
 
