@@ -40,6 +40,17 @@ int main()
 		break;
 	}
 
+	TPopulation pop(count, pattern);
+	pop.calculate();
+	pop.info();
+	
+	cout << "Najlepszy kandydat populacji\n";
+
+	TCandidate * best = pop.get_best_candidate();
+	best->info();
+	
+	std::cout << "\n\n\n";
+
 	/*
 
 	///////////////////////////////////////////////////////////

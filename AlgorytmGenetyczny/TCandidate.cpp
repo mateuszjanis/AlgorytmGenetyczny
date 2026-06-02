@@ -31,20 +31,6 @@ TCandidate::TCandidate(const TCandidate& original)
 	gens_count = genotype.size();
 }
 
-//void TCandidate::rate()
-//{
-//	double x1 = genotype[0].get_val();
-//	double x2 = genotype[1].get_val();
-//
-//	mark = pow(x1, 2) + x2;
-//}
-//
-//void TCandidate::init_vector()
-//{
-//	genotype.push_back({ "x1", 0, 100, 1 });
-//	genotype.push_back({ "x2", 0, 100, 1 });
-//}
-
 void TCandidate::info()
 {
 
@@ -70,8 +56,3 @@ void TCandidate::rand_gens_val()
 		genotype[i].set_rand_val();
 	}
 }
-
-//TParam TCandidate::get_genotype(int gen_id)
-//{
-//	return genotype[gen_id];
-//}

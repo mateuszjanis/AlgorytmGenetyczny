@@ -15,24 +15,24 @@ TPopulation::TPopulation(unsigned int count, TCandidate* pattern)
 	for (int i = 0; i < count; i++){candidates.push_back(pattern->create());}
 }
 
-//TPopulation::TPopulation(const TPopulation& original)
-//{
-//	_id = population_count;
-//	population_count++;
-//
-//	candidates_count = original.get_candidates_count();
-//	best_val = original.get_best_val();
-//
-//	for (int i = 0; i < candidates_count; i++)
-//	{
-//		const TCandidate* wsk_os_org = original.get_candidate_wsk(i);
-//		Tcandidate copy{ *wsk_os_org };
-//		candidates.push_back(copy);
-//	}
-//
-//	cout << "liczba osobników: " << candidates.size() << endl;
-//
-//}
+TPopulation::TPopulation(const TPopulation& original)
+{
+	_id = population_count;
+	population_count++;
+
+	candidates_count = original.get_candidates_count();
+	best_val = original.get_best_val();
+
+	for (int i = 0; i < candidates_count; i++)
+	{
+		const TCandidate* wsk_os_org = original.get_candidate_wsk(i);
+		TCandidate* copy = wsk_os_org->create_copy();
+		candidates.push_back(copy);
+	}
+
+	cout << "liczba osobników: " << candidates.size() << endl;
+
+}
 
 void TPopulation::info()
 {
@@ -68,4 +68,9 @@ TCandidate* TPopulation::get_best_candidate()
 
 	return candidates[i];
 
+}
+
+const TCandidate* TPopulation::get_candidate_wsk(int _id) const
+{
+	return candidates[_id];
 }

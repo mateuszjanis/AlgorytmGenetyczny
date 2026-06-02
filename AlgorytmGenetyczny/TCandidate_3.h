@@ -1,4 +1,6 @@
 #pragma once
+#include "TCandidate.h"
+
 class TCandidate_3 : public TCandidate
 {
 public:
@@ -23,8 +25,10 @@ public:
 	{
 		double x1 = genotype[0].get_val();
 		double x2 = genotype[1].get_val();
+		double x3 = genotype[2].get_val();
 
-		mark = 100 * x1 + x2;
+
+		mark = 100 * x1 + 10 * x2 + x3;
 	}
 
 protected:
@@ -34,7 +38,8 @@ protected:
 void TCandidate_3::init_vector()
 {
 	genotype.push_back({ "x1", 0, 10, 1 });
-	genotype.push_back({ "x2", 11, 20, 2 });
+	genotype.push_back({ "x2", 0, 10, 1 });
+	genotype.push_back({ "x3", 0, 10, 1 });
 
 	gens_count = genotype.size();
 }
