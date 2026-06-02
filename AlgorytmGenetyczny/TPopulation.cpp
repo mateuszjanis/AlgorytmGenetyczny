@@ -30,7 +30,7 @@ TPopulation::TPopulation(const TPopulation& original)
 		candidates.push_back(copy);
 	}
 
-	cout << "liczba osobników: " << candidates.size() << endl;
+	//cout << "liczba osobnikow: " << candidates.size() << endl;
 
 }
 

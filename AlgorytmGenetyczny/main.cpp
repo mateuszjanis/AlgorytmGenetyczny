@@ -6,7 +6,7 @@
 #include "TCandidate_1.h"
 #include "TCandidate_2.h"
 #include "TCandidate_3.h"
-#include "TPopulation.h"
+#include "TAlgorithm.h"
 
 using namespace std;
 
@@ -16,7 +16,7 @@ int main()
 	srand(time(0));
 
 	TCandidate* pattern;
-	int count = 0;
+	unsigned int count = 0;
 	int _type = -1;
 
 	cout << "Ktory osobnik [1-3]: ";
@@ -40,16 +40,26 @@ int main()
 		break;
 	}
 
-	TPopulation pop(count, pattern);
-	pop.calculate();
-	pop.info();
-	
-	cout << "Najlepszy kandydat populacji\n";
+	//unsigned int candidates_count = 5;
+	unsigned int max_population_count = 20;
+	unsigned int min_improvement_proc = 2;
 
-	TCandidate * best = pop.get_best_candidate();
-	best->info();
+	TAlgorithm task{ pattern,
+		count,
+		max_population_count,
+		min_improvement_proc };
+	task.run();
+
+	//TPopulation pop(count, pattern);
+	//pop.calculate();
+	//pop.info();
+	//
+	//cout << "Najlepszy kandydat populacji\n";
+	//
+	//TCandidate * best = pop.get_best_candidate();
+	//best->info();
+	//
 	
-	std::cout << "\n\n\n";
 
 	/*
 
@@ -198,5 +208,6 @@ int main()
 	////////////////////////////////////////////////
 	*/
 
+	std::cout << "\n\n\n";
 	return 0;
 }
