@@ -7,6 +7,7 @@
 #include "TCandidate_2.h"
 #include "TCandidate_3.h"
 #include "TAlgorithm.h"
+#include "TPopulation.h"
 
 using namespace std;
 
@@ -15,6 +16,21 @@ int main()
 
 	srand(time(0));
 
+	TCandidate* pattern;
+	pattern = new TCandidate_1{};
+
+	TPopulation pop{ 10 , pattern};
+	pop.calculate();
+	pop.info();
+	cout << endl;
+
+	cout << "Wylosowani osobnicy: ";
+	for (int i = 0; i < 100; i++)
+	{
+		TCandidate* can = pop.promote_candidate();
+	}
+
+	/*
 	TCandidate* pattern;
 	unsigned int count = 0;
 	int _type = -1;
@@ -59,7 +75,7 @@ int main()
 	//TCandidate * best = pop.get_best_candidate();
 	//best->info();
 	//
-	
+	*/
 
 	/*
 

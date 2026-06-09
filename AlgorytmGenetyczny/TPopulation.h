@@ -21,7 +21,8 @@ public:
 	double get_best_val() const { return best_val; };
 	unsigned int get_id() { return _id; };
 	unsigned int get_candidates_count() const { return candidates_count; };
+	TCandidate* promote_candidate();
 
 private:
-	const TCandidate* get_candidate_wsk(int _id) const;
+	TCandidate* get_candidate_wsk(int _id) const;
 };

@@ -1,5 +1,6 @@
 #include "TPopulation.h"
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -70,7 +71,34 @@ TCandidate* TPopulation::get_best_candidate()
 
 }
 
-const TCandidate* TPopulation::get_candidate_wsk(int _id) const
+TCandidate* TPopulation::get_candidate_wsk(int _id) const
 {
 	return candidates[_id];
+}
+
+TCandidate* TPopulation::promote_candidate()
+{
+	int return_id = 0;
+	vector<double> distance;
+
+	for (int i = 0; i < candidates_count; i++)
+	{
+		distance.push_back(abs(candidates[i]->get_mark()));
+		if (i != 0) distance[i] += distance[i-1];
+	}
+	int end_value = round(distance.back());
+	int rand_value = rand() % end_value;
+
+	for (int i = 0; i < candidates_count; i++)
+	{
+		if (rand_value < distance[i])
+		{
+			return_id = i;
+			break;
+		}
+	}
+
+	cout << " #" << return_id;
+
+	return get_candidate_wsk(return_id);
 }
