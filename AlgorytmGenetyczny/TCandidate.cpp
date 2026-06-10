@@ -56,3 +56,8 @@ void TCandidate::rand_gens_val()
 		genotype[i].set_rand_val();
 	}
 }
+
+void TCandidate::set_gen_val(int gen_id, double gen_value)
+{
+	genotype[gen_id].set_val(gen_value);
+}

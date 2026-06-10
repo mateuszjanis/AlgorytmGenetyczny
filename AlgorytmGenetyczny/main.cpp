@@ -4,10 +4,10 @@
 #include <time.h>
 
 #include "TCandidate_1.h"
-#include "TCandidate_2.h"
-#include "TCandidate_3.h"
+//#include "TCandidate_2.h"
+//#include "TCandidate_3.h"
 #include "TAlgorithm.h"
-#include "TPopulation.h"
+//#include "TPopulation.h"
 
 using namespace std;
 
@@ -22,13 +22,18 @@ int main()
 	TPopulation pop{ 10 , pattern};
 	pop.calculate();
 	pop.info();
-	cout << endl;
+	cout << "\n\n---------RULETKA---------\n\n";
 
 	cout << "Wylosowani osobnicy: ";
 	for (int i = 0; i < 100; i++)
 	{
 		TCandidate* can = pop.promote_candidate();
 	}
+
+	cout << "\n\n-------KRZYŻOWANIE-------\n\n";
+	pop.cross_candidates();
+	cout << "\n\n---------MUTACJA---------\n\n";
+	pop.mutate();
 
 	/*
 	TCandidate* pattern;

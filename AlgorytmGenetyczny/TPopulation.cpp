@@ -102,3 +102,62 @@ TCandidate* TPopulation::promote_candidate()
 
 	return get_candidate_wsk(return_id);
 }
+
+void TPopulation::cross_candidates()
+{
+	cout << "Wylosowani osobnicy ";
+
+	// losowanie dwóch osobników
+	TCandidate* os1 = this->promote_candidate();
+	TCandidate* os2 = this->promote_candidate();
+
+	cout << "\nStarzy osobnicy: \n";
+	os1->info();
+	os2->info();
+
+	// losowanie które geny wymieniają
+	int gen_id = rand() % os1->get_gens_count();
+
+	// skopiowanie genów lokalnie
+	double gen_val1 = os1->get_gen_val(gen_id);
+	double gen_val2 = os2->get_gen_val(gen_id);
+
+	// zamiana genów
+	os1->set_gen_val(gen_id, gen_val2);
+	os2->set_gen_val(gen_id, gen_val1);
+
+	os1->rate();
+	os2->rate();
+
+	cout << "\nNowi osobnicy: \n";
+	os1->info();
+	os2->info();
+}
+
+void TPopulation::mutate()
+{
+	int cand_id = rand() % candidates_count; // losowanie osobnika
+	cout << "Wylosowany kandydat: #" << cand_id << endl;
+	TCandidate* os = candidates[cand_id];
+	os->info();
+
+	int gen_id = rand() % os->get_gens_count(); // losowanie który gen zmienić
+	int shift = rand() % 2; // dodanie czy odjęcie dx
+	
+	double gen_value = os->get_gen_val(gen_id);
+
+	if (shift)
+	{
+		gen_value += os->get_gen_dx(gen_id);
+	}
+	else
+	{
+		gen_value -= os->get_gen_dx(gen_id);
+	}
+
+	os->set_gen_val(gen_id, gen_value);
+	os->rate();
+
+	cout << "\nPo mutacji: \n";
+	os->info();
+}
