@@ -23,9 +23,10 @@ public:
 	unsigned int get_candidates_count() const { return candidates_count; };
 	
 	TCandidate* promote_candidate();
-	void cross_candidates();
-	void mutate();
+	void cross_candidates(int first_cand_id);
+	void mutate(int cand_id);
 
+	void set_candidate(int id, TCandidate* promoted_candidate);
 
 private:
 	TCandidate* get_candidate_wsk(int _id) const;

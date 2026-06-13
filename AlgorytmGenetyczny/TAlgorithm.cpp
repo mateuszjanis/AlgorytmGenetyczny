@@ -47,9 +47,39 @@ void TAlgorithm::run()
             delete wsk_population_prev;
             wsk_population_prev = wsk_population_pres;
 
-            wsk_population_pres = new TPopulation{ candidates_count, pattern};
+            wsk_population_pres = new TPopulation{ candidates_count , pattern };
+
+            // elitaryzm
+            wsk_population_pres->set_candidate(0, wsk_population_prev->get_best_candidate());
+
+            // promocja/selekcja kandydatów
+            for (int i = 1; i < wsk_population_pres->get_candidates_count(); i++)
+            {
+                TCandidate* promoted_candidate = wsk_population_prev->promote_candidate();
+                wsk_population_pres->set_candidate(i, promoted_candidate);
+            }
+
+            // krzyżowanie kandydatów
+            for (int i = 1; i < wsk_population_pres->get_candidates_count() - 1; i += 2)
+            {
+                if (rand() % 100 < 80)
+                {
+                    wsk_population_pres->cross_candidates(i);
+                    //cout << "\nZASZLO KRZYZOWANIE #" << i << " i #" << i + 1 << endl;
+                }
+            }
+
+            // mutacja kandydatów
+            for (int i = 1; i < wsk_population_pres->get_candidates_count(); i++)
+            {
+                if (rand() % 100 < 5)
+                {
+                    wsk_population_pres->mutate(i);
+                    //cout << "\nZASZLA MUTACJA #" << i << endl;
+                }
+            }
         }
-        
+
         if (wsk_population_pres->get_id() == 25) return;
     
     }

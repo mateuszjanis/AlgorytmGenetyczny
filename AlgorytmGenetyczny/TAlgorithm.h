@@ -1,6 +1,8 @@
 #pragma once
 #include "TPopulation.h"
 
+#define mutation_chance 
+
 class TAlgorithm
 {
     unsigned int stop_max_population_count;
